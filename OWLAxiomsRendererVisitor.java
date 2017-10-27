@@ -545,11 +545,12 @@ public class OWLAxiomsRendererVisitor extends IndentedRendererVisitor implements
 	indentedOutputln("</owl:onProperty>");
 	ValueExpression ve = c.getValue();
 	if ( ve instanceof Value ) {
+	    Value val = (Value) ve;
 	    indentedOutput("<owl:hasValue");
-	    if ( ((Value)ve).getType() != null ) {
-		writer.print( " rdf:datatype=\""+((Value)ve).getType()+"\"" );
+	    if ( val.getType() != null ) {
+		writer.print( " rdf:datatype=\""+val.getType()+"\"" );
 	    }
-	    writer.print( ">"+((Value)ve).getValue()+"</owl:hasValue>"+NL);
+	    writer.print( ">"+val.getValue()+"</owl:hasValue>"+NL);
 	} else if ( ve instanceof InstanceId ) {
 	    indentedOutput("<owl:hasValue>"+NL);
 	    increaseIndent();
@@ -720,11 +721,12 @@ public class OWLAxiomsRendererVisitor extends IndentedRendererVisitor implements
 	increaseIndent();
 	ValueExpression ve = c.getValue();
 	if ( ve instanceof Value ) {
+	    Value val = (Value) ve;
 	    indentedOutput("<rdf:first");
-	    if ( ((Value)ve).getType() != null ) {
-		writer.print( " rdf:datatype=\""+((Value)ve).getType()+"\"" );
+	    if ( val.getType() != null ) {
+		writer.print( " rdf:datatype=\""+val.getType()+"\"" );
 	    }
-	    writer.print( ">"+((Value)ve).getValue()+"</rdf:first>"+NL);
+	    writer.print( ">"+val.getValue()+"</rdf:first>"+NL);
 	} else {
 	    indentedOutput("<rdf:first>"+NL);
 	    ve.accept( this );
