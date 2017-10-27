@@ -132,7 +132,7 @@ public class MyApp {
 					System.err.println("Threshold "+(((double)i)/10)+" : "+evaluator1.getFmeasure()+" over "+a1.nbCells()+" cells");
 					if ( evaluator1.getFmeasure() > best ) {
 						result = (BasicAlignment)(a1).clone();
-						best = (evaluator1.getFmeasure();
+						best = (evaluator1.getFmeasure());
 					}
 				}
 				// Displays it as OWL Rules
